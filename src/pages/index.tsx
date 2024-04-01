@@ -17,7 +17,10 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Kubernetes at Scale on any Infrastructure`}
-      description="OKD is a Kubernetes distribution that includes OS management, operators, console and .">
+      description="Bringing together 100+ components to provide comprehensive
+       tooling for administrators and developers, we've made choices so you 
+       don't have to. Deploy in-cloud or on-prem and join a community 
+       embracing the latest in cloud emerging technologies.">
       <HomepageHero />
       <main>
         <HomepageSoWhatIsOKD/>

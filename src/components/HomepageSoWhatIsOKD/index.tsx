@@ -13,7 +13,7 @@ export default function HomepageSoWhatIsOKD(): JSX.Element {
               Kubernetes is a collection of software and design patters to operate applications at scale.</p>
             <p>We add some features directly as modifications into Kubernetes, but mostly we augment the platform by "preinstalling"
               a large amount of pieces of software called "Operators" into the deployed cluster.</p>
-              <p>These operators then provide all of our cluster components which make up the platform, such as OS upgrades, web consoles, monitoring and image building</p>
+              <p>These operators then provide all of our cluster components (over 100 of them!) which make up the platform, such as OS upgrades, web consoles, monitoring and image building</p>
               <p>INSERT A CTA BUTTON HERE to the DOCS!</p>
           </div>
         </div>
