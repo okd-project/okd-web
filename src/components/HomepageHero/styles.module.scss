@@ -1,0 +1,134 @@
+
+// Overall Container
+ .okdHeroCanvas {
+    //padding: 4rem 0;
+    align-items: center;
+    background-color: var(--ifm-hero-background-color);
+    color: var(--ifm-hero-text-color);
+    --ifm-hero-background-color: var(--ifm-color-primary);
+    --ifm-hero-text-color: var(--ifm-font-color-base-inverse);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    height: min(calc(var(--ifm-container-width) * 9/16), 100vw * 9/16);
+    
+
+    @media (min-width: 1440px) {
+
+          height: calc(var(--ifm-container-width-xl) * 9/16);
+    }
+
+
+    // Don't show video on non-screen mediums
+    @media not screen {
+        height: 400px;
+  
+    }
+  
+    // Don't show video on small screens
+    @media screen and (max-width: 996px) {
+        height: 500px;
+    }
+
+
+    @media screen and (min-width: 997px) {
+
+      --ifm-hero-background-color: var(--okd-brand-bg-washout);
+    }
+
+    @media screen and (max-width: 996px) {
+        padding: 2rem;
+    }
+
+    .okdHeroLayer {
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      //background-color: rgba(magenta, 50%);
+    }
+
+  }
+
+
+  .videoBG {
+    display: flex;
+    padding: 0;
+    video, svg {
+      height: 100%;
+      width: 100%;
+      //height: calc(var(--ifm-container-width-xl) * 9/16);
+      path {
+        fill: var(--okd-brand-bg-washout);
+      }
+    }
+
+
+  // Don't show video on non-screen mediums
+  @media not screen {
+      display: none;
+
+  }
+
+  // Don't show video on small screens
+  @media screen and (max-width: 996px) {
+      display: none;
+  }
+
+  }
+
+
+.heroTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  // Don't show video on non-screen mediums
+  @media not screen {
+    justify-content: center;
+
+  }
+
+  // Don't show video on small screens
+  @media screen and (max-width: 996px) {
+    justify-content: center;
+  }
+
+  padding-bottom: 30px;
+}
+
+.heroTextHolder {
+  margin: 0;
+  align-self: center;
+  padding: 10px;
+  width: auto;
+  background-color: var(--ifm-background-surface-color);
+  --ifm-hero-text-color: var(--ifm-font-color-base);
+  color: var(--ifm-hero-text-color);
+}
+
+.heroBGBrand {
+  background-color: var(--ifm-color-primary);
+  --ifm-hero-text-color: var(--ifm-font-color-base-inverse);
+  color: var(--ifm-hero-text-color);
+}
+
+.logoHolder {
+  @extend .heroTextHolder;
+  height: 150px;
+  padding: 25px;
+}
+
+// Not Used
+
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

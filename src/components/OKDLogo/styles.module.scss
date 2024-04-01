@@ -1,0 +1,20 @@
+.logoPath {
+    
+    stroke-width: 0;
+
+    &TextColor {
+        @extend .logoPath;
+        fill: var(--ifm-color-emphasis-1000);
+    }
+
+    &BrandColor {
+        @extend .logoPath;
+        fill: var(--ifm-color-primary);
+    }
+  
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+}
