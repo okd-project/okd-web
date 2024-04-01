@@ -2,11 +2,11 @@
     "short_name": "OKD",
     "name": "OKD Kubernetes Platform",
     "icons": [
-      { "src": "/img/brand/solid-icon-192x.png", "type": "image/png", "sizes": "192x192" },
-      { "src": "/img/brand/solid-icon-512x.png", "type": "image/png", "sizes": "512x512" }
+      { "src": "img/brand/solid-icon-192x.png", "type": "image/png", "sizes": "192x192" },
+      { "src": "img/brand/solid-icon-512x.png", "type": "image/png", "sizes": "512x512" }
     ],
-    "id": "/?source=pwa",
-    "start_url": "/?source=pwa",
+    "id": "./?source=pwa",
+    "start_url": "./?source=pwa",
     "background_color": "#f22b29",
     "theme_color": "#f22b29"
   }

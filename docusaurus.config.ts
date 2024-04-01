@@ -12,6 +12,21 @@ import type { UserThemeConfig as ClassicThemeConfig } from "@docusaurus/theme-co
 import type { Options as ThemeOptions } from "@docusaurus/theme-classic";
 import type { PluginOptions as SearchOptions } from "@easyops-cn/docusaurus-search-local";
 
+var deployURL = process.env.OKD_DEPLOY_URL;
+var deployOrigin = "https://okd.io";
+var deployPath = "/";
+if(deployURL) {
+  const parsedURL = new URL(deployURL);
+  const parsedOrigin = parsedURL.origin;
+  if(parsedOrigin) {
+    deployOrigin = parsedOrigin;
+  }
+  const parsedPath = parsedURL.pathname;
+  if(parsedPath) {
+    deployPath = parsedPath;
+  }
+}
+
 const config: Config = {
   title: "OKD Kubernetes Platform",
   tagline: "Deploy at scale on any infrastructure",
@@ -19,8 +34,8 @@ const config: Config = {
   // Defined manually for compatibility reasons
   //favicon: "favicon.ico",
 
-  url: "https://www.okd.io",
-  baseUrl: "/",
+  url: deployOrigin,
+  baseUrl: deployPath,
 
   organizationName: "okd-project", // Usually your GitHub org/user name.
   projectName: "okd-web", // Usually your repo name.
@@ -240,7 +255,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'icon',
-        href: '/favicon.ico',
+        href: 'favicon.ico',
         sizes: "32x32"
       }
     },
@@ -248,7 +263,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'icon',
-        href: '/img/brand/logo/o-icon.svg',
+        href: 'img/brand/logo/o-icon.svg',
         type: "image/svg+xml"
       }
     },
@@ -256,16 +271,22 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'apple-touch-icon',
-        href: '/img/brand/solid-icon-180x',
+        href: 'img/brand/solid-icon-180x',
       }
     },
     {
       tagName: 'link',
       attributes: {
         rel: 'manifest',
-        href: '/manifest.json',
+        href: 'manifest.json',
       }
     },
+    {
+      tagName: 'base',
+      attributes: {
+        href: deployPath
+      }
+    }
   ]
 };
 

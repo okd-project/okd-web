@@ -5,7 +5,7 @@ export default function HomepageSoWhatIsOKD(): JSX.Element {
     return (
     <div className="container padding-top--lg"><div className="row">
           <div className={clsx("col", "col--4", styles.centerArt)}>
-            <img style={{padding: "40px"}} src="/img/brand/mascot/mascot_laptop_plugged.svg" />
+            <img style={{padding: "40px"}} src="img/brand/mascot/mascot_laptop_plugged.svg" />
           </div>
           <div className="col col--8">
             <h2>So what does that mean exactly?</h2>
