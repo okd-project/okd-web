@@ -30,7 +30,7 @@ if(deployURL) {
 var currentRepository = process.env.GITHUB_REPOSITORY
 var editUrl = "https://github.com/okd-project/okd-web/tree/main/"
 if(currentRepository) {
-  editUrl = "https://github.com/" + editUrl + "/tree/main/"
+  editUrl = "https://github.com/" + currentRepository + "/tree/main/"
 }
 
 const config: Config = {
