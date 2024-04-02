@@ -27,6 +27,12 @@ if(deployURL) {
   }
 }
 
+var currentRepository = process.env.GITHUB_REPOSITORY
+var editUrl = "https://github.com/okd-project/okd-web/tree/main/"
+if(currentRepository) {
+  editUrl = "https://github.com/" + editUrl + "/tree/main/"
+}
+
 const config: Config = {
   title: "OKD Kubernetes Platform",
   tagline: "Deploy at scale on any infrastructure",
@@ -194,8 +200,7 @@ const config: Config = {
       "@docusaurus/plugin-content-docs",
       {
         sidebarPath: "./docs/sidebars.ts",
-        editUrl:
-          "https://github.com/okd-project/okd-web/tree/main/docs/",
+        editUrl: editUrl,
       } satisfies DocsPluginOptions,
     ],
     [
@@ -205,8 +210,7 @@ const config: Config = {
         blogDescription: "Updates from the OKD team on development",
         showReadingTime: true,
       
-        editUrl:
-          "https://github.com/okd-project/okd-web/tree/main/content/",
+        editUrl: editUrl,
       } satisfies BlogPluginOptions,
     ],
 
