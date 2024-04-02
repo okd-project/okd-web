@@ -99,17 +99,15 @@ const config: Config = {
         },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          type: "doc",
-          docId: "project/docs",
+          type: "docSidebar",
+          sidebarId: "productDocsSidebar",
           position: "left",
-          activeBasePath: "docs/project/docs",
           label: "Docs",
         },
         {
-          type: "doc",
-          docId: "project/okd_tech_docs/operators",
+          type: "docSidebar",
+          sidebarId: "operatorsSidebar",
           position: "left",
-          activeBasePath: "docs/project/okd_tech_docs/operators",
           label: "Operators",
         },
         {
