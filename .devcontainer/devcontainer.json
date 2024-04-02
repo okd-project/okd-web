@@ -1,14 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "Debian",
+	"name": "OKD Website Devcontainer",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 	"features": {
-		"ghcr.io/devcontainers/features/git-lfs:1": {
-			"autoPull": true,
-			"version": "latest"
-		},
 		"ghcr.io/devcontainers/features/github-cli:1": {
 			"version": "latest"
 		},
@@ -20,6 +16,8 @@
 	},
 
 
+	"updateContentCommand": "npm install",
+	"postAttachCommand": "npm start",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [3000]
