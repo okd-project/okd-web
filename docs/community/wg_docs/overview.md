@@ -13,7 +13,7 @@ The Documentation Subgroup is open to all.  You don't need to be invited to join
 
 The [OKD product documentation](https://docs.okd.io)<!--{target=_blank} comment for docusaurus compat--> is maintained in the same [git repository](https://github.com/openshift/openshift-docs/)<!--{target=_blank} comment for docusaurus compat--> as Red Hat OpenShift product documentation, as they are sibling projects and largely share the same source code.
 
-The process for making changes to the documentation is outlined in the [documentation section](../../productdocs/docs.md#product-documentation)
+The process for making changes to the documentation is outlined in the [documentation section](../../documentation/#product-documentation)
 
 ## Community Documentation
 
