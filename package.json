@@ -35,14 +35,14 @@
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "sass": "^1.74.1"
+    "sass": "^1.75.0"
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "^3.2.1",
     "@docusaurus/module-type-aliases": "3.2.1",
     "@docusaurus/tsconfig": "3.2.1",
     "@docusaurus/types": "3.2.1",
-    "typescript": "~5.4.4"
+    "typescript": "~5.4.5"
   },
   "browserslist": {
     "production": [
