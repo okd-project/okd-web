@@ -16,7 +16,7 @@ export default function HomepageSoWhatIsOKD(): JSX.Element {
                     a large amount of pieces of software called "Operators" into the deployed cluster.</p>
                 <p>These operators then provide all of our cluster components (over 100 of them!) which make up the platform, such as OS upgrades, web consoles, monitoring and image building</p>
                 <p>
-                    <a href="/docs/documentation" className="button button--primary">Go to Docs</a>
+                    <a href="docs/documentation" className="button button--primary">Go to Docs</a>
                 </p>
             </div>
         </div>
