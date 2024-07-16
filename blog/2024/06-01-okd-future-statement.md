@@ -3,9 +3,9 @@ draft: false
 date: 2024-06-01
 ---
 
-<!-- cSpell:ignore SCOS ostree homelabs -->
+# OKD Working Group Statement
 
-# OKD Working Group Statement June 1, 2024
+<!-- cSpell:ignore SCOS ostree homelabs -->
 
 We would like to take a moment to outline what's been happening the past few months in terms of OKD releases and what the future holds for the project. 
 
