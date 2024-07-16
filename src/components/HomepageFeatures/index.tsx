@@ -3,8 +3,6 @@ import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 import UndrawAlienScience from './img/undraw_alien_science.svg';
-import UndrawDeveloperActivity from './img/undraw_developer_activity.svg';
-import UndrawEngineeringTeam from './img/undraw_engineering_team.svg';
 import UndrawInformedDecision from './img/undraw_informed_decision.svg';
 import UndrawServerCluster from './img/undraw_server_cluster.svg';
 
@@ -21,10 +19,9 @@ const FeatureList: FeatureItem[] = [
     Svg: UndrawServerCluster,
     description: (
       <>
-        Through installers, OKD can deploy into clouds, lab environments or metal. Depending
-        on your platform installation could be fully automated, partially automated or require
-        manual work. OKD controls the full operating system of each host, configurable through the
-        Kubernetes API.
+        OKD is intended to be run at all scales from cloud to metal to edge. 
+        The installer is fully automated on some platforms (such as AWS), or
+        supports configuration into custom environments (such as metal or labs).
       </>
     ),
   },
@@ -33,10 +30,9 @@ const FeatureList: FeatureItem[] = [
     Svg: UndrawInformedDecision,
     description: (
       <>
-        The landscape of cloud tools is vast. A community of practice means there is precedence on
-        what to use (e.g GitOps, CI/CD, Service Mesh, etc).
-        This is expressed through how OKD is deployed, the cluster components included and
-        the operators chosen to be included in catalogs.
+        The cloud landscape is vast. From GitOps to Service Meshes, Virtualisation to Storage, OKD integrated 
+        deployments of leading projects. Recommended Design Patterns enchance security posture
+        and defaults include hardended configuration 
       </>
     ),
   },
@@ -45,7 +41,9 @@ const FeatureList: FeatureItem[] = [
     Svg: UndrawAlienScience,
     description: (
       <>
-        OKD uses evolving best practice design patterns and software. We can be used as a testground for 
+        OKD adopts developing best practise and technology. A great platform for technologists and students 
+        to learn, experiment and contribute across the cloud ecosystem. For OpenShift contributors and partners
+        our technical similarity makes us an ideal lab and development environemnt.
       </>
     ),
   },
