@@ -76,13 +76,13 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    announcementBar: {
-      id: 'beta-announce',
-      content: "Beta Site!",
-      backgroundColor: 'pink',
+  //  announcementBar: {
+  //    id: 'beta-announce',
+  //    content: "Beta Site!",
+  //    backgroundColor: 'pink',
       //textColor: '',
-      isCloseable: true,
-    },
+  //    isCloseable: true,
+  //  },
     colorMode: {
       defaultMode: "dark",
       respectPrefersColorScheme: true,
