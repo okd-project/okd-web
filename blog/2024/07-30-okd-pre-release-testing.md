@@ -3,7 +3,7 @@ draft: false
 date: 2024-07-30
 ---
 
-# OKD Pre-Release Testing Summer 2024
+# OKD Pre-Release Testing July 2024
 
 <!-- cSpell:ignore SCOS ostree nightlies -->
 
