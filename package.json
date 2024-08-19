@@ -38,9 +38,9 @@
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "^3.5.1",
-    "@docusaurus/module-type-aliases": "3.5.1",
-    "@docusaurus/tsconfig": "3.5.1",
-    "@docusaurus/types": "3.5.1",
+    "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/tsconfig": "3.5.2",
+    "@docusaurus/types": "3.5.2",
     "@types/gtag.js": "^0.0.20",
     "typescript": "~5.5.4"
   },
