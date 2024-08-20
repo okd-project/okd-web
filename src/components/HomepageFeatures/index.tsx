@@ -26,7 +26,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Opionated',
+    title: 'Opinionated',
     Svg: UndrawInformedDecision,
     description: (
       <>
