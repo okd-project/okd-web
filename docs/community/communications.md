@@ -9,18 +9,6 @@ channels that the working group utilizes.
 
 ## E-Mail
 
-The working group maintains a mailing list as well as several email addresses.
-
-**Mailing List**
-
-[okd-wg mailing list](https://groups.google.com/g/okd-wg)
-
-The purpose of this list is to discuss, give guidance & enable collaboration on
-current development efforts for OKD4, Fedora CoreOS (FCOS) & Kubernetes. Please
-note that the focus of this list is the active development of OKD, and the
-processes of this community, its is not intended as a forum for reporting bugs or
-requesting help with operating OKD.
-
 **Reporting Addresses**
 
 The working group uses several e-mail addresses to receive communications from the
@@ -54,11 +42,17 @@ group meetings, and community events.
 ## Slack
 
 The working group maintains a presence on the
-[Kubernetes community Slack instance](https://kubernetes.slack.com) in the
-`#openshift-users` channel. This channel is a good place to come for OKD-specific
+[Kubernetes community Slack instance](https://kubernetes.slack.com).
+
+- `#openshift-users` This channel is a good place to come for OKD-specific
 help with operations and usage.
+
+- `#okd-dev` This channel is strictly for discussion surrounding OKD's organizational structure, CI/CD infrastructure, and release strategy. Please use `#openshift-users` for community support questions.
+
 If you are not yet a member of the Kubernetes workspace, you can request your
 invitation on [slack.kubernetes.io](https://slack.kubernetes.io).
+
+
 
 ## GitHub
 
