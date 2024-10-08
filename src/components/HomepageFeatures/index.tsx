@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
       <>
         The cloud landscape is vast. From GitOps to Service Meshes, Virtualisation to Storage, OKD integrated 
         deployments of leading projects. Recommended Design Patterns enchance security posture
-        and defaults include hardended configuration 
+        and defaults include hardened configuration 
       </>
     ),
   },
