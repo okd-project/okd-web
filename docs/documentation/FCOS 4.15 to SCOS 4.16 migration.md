@@ -51,21 +51,25 @@ watch oc get co,nodes,mcp,clusterversion
 ################### Patch process to upgrade from cluster version 4.15.0-0.okd-2024-03-10-010116 to 4.16.0-0.okd-scos-2024-10-18-035245 ###################
 
 The following patch can be used to upgrade the cluster if openshift-kube-apiserver-operator deployment has one container and it's environment vairables are in the following order:
-```env:
+```
+env:
 - name: IMAGE
 - name: OPERATOR_IMAGE
 - name: OPERAND_IMAGE_VERSION
 - name: OPERATOR_IMAGE_VERSION
-- name: POD_NAME```
+- name: POD_NAME
+```
 
 `oc scale --replicas=0 deployments/cluster-version-operator -n openshift-cluster-version`
 
+```
 oc -n openshift-kube-apiserver-operator patch deployment kube-apiserver-operator --type='json' -p='[
     {"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:37d6b6c13d864deb7ea925acf2b2cb34305333f92ce64e7906d3f973a8071642"},
     {"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value": "registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:371c966fc1dfb8ad089089140309b84dc54c2a443e2db0dee5ee940120bf0e4e"},
     {"op": "replace", "path": "/spec/template/spec/containers/0/env/1/value", "value": "registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:37d6b6c13d864deb7ea925acf2b2cb34305333f92ce64e7906d3f973a8071642"},
     {"op": "replace", "path": "/spec/template/spec/containers/0/env/2/value", "value": "1.29.8"}
 ]'
+```
 
 Wait for the rollout of the new kube-apiserver pods to complete, this process is complete once an installer pod has the status 'Completed' on each node responsible for running the kube-apiserver. (this process takes 10 minutes on a three node control-plane)
 You can monitor this process with 'watch oc get pods -n openshift-kube-apiserver-operator && oc get pods -n openshift-kube-apiserver'
