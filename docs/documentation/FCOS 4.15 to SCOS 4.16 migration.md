@@ -67,7 +67,7 @@ oc -n openshift-kube-apiserver-operator patch deployment kube-apiserver-operator
     {"op": "replace", "path": "/spec/template/spec/containers/0/image", "value": "registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:37d6b6c13d864deb7ea925acf2b2cb34305333f92ce64e7906d3f973a8071642"},
     {"op": "replace", "path": "/spec/template/spec/containers/0/env/0/value", "value": "registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:371c966fc1dfb8ad089089140309b84dc54c2a443e2db0dee5ee940120bf0e4e"},
     {"op": "replace", "path": "/spec/template/spec/containers/0/env/1/value", "value": "registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:37d6b6c13d864deb7ea925acf2b2cb34305333f92ce64e7906d3f973a8071642"},
-    {"op": "replace", "path": "/spec/template/spec/containers/0/env/2/value", "value": "1.29.8"}
+    {"op": "replace", "path": "/spec/template/spec/containers/0/env/2/value", "value": "1.29.6"}
 ]'
 ```
 
