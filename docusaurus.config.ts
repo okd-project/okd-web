@@ -112,9 +112,9 @@ const config: Config = {
         },
         {
           type: "docSidebar",
-          sidebarId: "operatorsSidebar",
+          sidebarId: "okderatorSidebar",
           position: "left",
-          label: "Operators",
+          label: "Operators & Extensions",
         },
         {
           type: "docSidebar",
