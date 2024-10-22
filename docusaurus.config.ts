@@ -78,7 +78,7 @@ const config: Config = {
     // Replace with your project's social card
     announcementBar: {
       id: 'scos-notice',
-      content: 'Update on lack of OKD 4.16, 4.17 and why we\'re switching to SCOS from FCOS: <a href="/blog/2024/06/01/okd-future-statement">read here</a>.',
+      content: 'Update on OKD 4.16, 4.17 and why we\'re switching to SCOS from FCOS: <a href="/blog/2024/06/01/okd-future-statement">read here</a>.',
       backgroundColor: '#666',
       textColor: '#fff',
       isCloseable: false,
