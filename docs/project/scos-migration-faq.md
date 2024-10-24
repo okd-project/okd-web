@@ -4,13 +4,13 @@
 
 This FAQ document relates to the builds of OKD that use CentOS Stream CoreOS (SCOS) after work done to stop using RHEL as the base for cluster components, as well as the upgrade path from pre-4.16 OKD FCOS/SCOS installations.
 
-- [When will OKD SCOS be released?](https://okd.io/docs/project/scos-migration-faq#When-will-OKD-SCOS-be-released)
+- [When will OKD SCOS be released?](https://okd.io/docs/project/scos-migration-faq#when-will-okd-scos-be-released)
 - [Will there be any more releases of OKD FCOS?](https://okd.io/docs/project/scos-migration-faq#Will-there-be-any-more-releases-of-OKD-FCOS)
 - [Can OKD FCOS clusters transition to OKD SCOS?](https://okd.io/docs/project/scos-migration-faq#Can-OKD-FCOS-clusters-transition-to-OKD-SCOS)
 - [What is the status of Operators on OKD SCOS?](https://okd.io/docs/project/scos-migration-faq#What-is-the-status-of-Operators-on-OKD-SCOS)
 - [Can I use a Red Hat pull secret to enable OCP-related content such as operators?](https://okd.io/docs/project/scos-migration-faq#Can-I-use-a-Red-Hat-pull-secret-to-enable-OCP-related-content-such-as-operators)
 - [What platforms has OKD SCOS been tested on?](https://okd.io/docs/project/scos-migration-faq#What-platforms-has-OKD-SCOS-been-tested-on)
-- [What are the known issues with OKD SCOS 4.16?](https://okd.io/docs/project/scos-migration-faq#What-are-the-known-issues-with-OKD-SCOS-416)
+- [What are the known issues with OKD SCOS 4.16?](https://okd.io/docs/project/scos-migration-faq#known-issues)
 - [Why does the OKD SCOS 4.16 installer require nodes to be running FCOS?](https://okd.io/docs/project/scos-migration-faq#Why-does-the-OKD-SCOS-416-installer-require-nodes-to-be-running-FCOS)
 
 ## When will OKD SCOS be released?
@@ -37,7 +37,7 @@ A. No, this would be a violation of Red Hat's Terms of Service.
 
 A. Currently, the OKD CI tests Installer Provided Infrastructure (IPI) on AWS and vSphere. We're looking for community members to test installations on GCP, Azure, and Bare Metal. Please reach out if you can volunteer to help. 
 
-## What are the known issues with OKD SCOS 4.16?
+## What are the known issues with OKD SCOS 4.16? {#known-issues}
 
 When OKD 4.16 is released, we'll have an official "OKD SCOS 4.16 Release Notes" document with known issues. In the meantime, please see this hackmd file where we're tracking issues.  
 
