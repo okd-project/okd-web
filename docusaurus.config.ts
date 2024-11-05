@@ -36,6 +36,10 @@ if(currentRepository) {
 const config: Config = {
   title: "OKD Kubernetes Platform",
   tagline: "Deploy at scale on any infrastructure",
+
+  future: {
+    experimental_faster: true,
+  },
   
   // Defined manually for compatibility reasons
   //favicon: "favicon.ico",
