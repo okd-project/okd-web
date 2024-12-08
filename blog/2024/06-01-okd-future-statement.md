@@ -1,6 +1,7 @@
 ---
 draft: false 
 date: 2024-06-01
+authors: ["jaimemagiera"]
 ---
 
 # OKD Working Group Statement

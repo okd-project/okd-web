@@ -1,3 +1,14 @@
+---
+title: Force upgrade a cluster to 4.16
+sidebar_label: Perform a forced upgrade to 4.16
+description: Take a cluster from 4.15 or 4.16-preview to 4.16 stable
+---
+
+:::danger
+copyedit this severely
+:::
+
+
 ################### TESTING ONLY ###################
 
 ################### NOT FOR USE WITH PRODUCTION OKD CLUSTERS ###################
@@ -9,7 +20,9 @@ Target cluster version 4.16.0-0.okd-scos-2024-10-18-035245
 
 Use https://amd64.origin.releases.ci.openshift.org/graph to find digest for target cluster version
 
-In this case the target version digest is ```registry.ci.openshift.org/origin/release-scos@sha256:b3a25b400e66a8d6961dcd52b947629128aef6ca0d351bd6d3733dafd1dd9586```
+
+
+In this case the target version digest is ```registry.ci.openshift.org/origin/release-scos@sha256:b3a25b400e66a8d6961dcd52b947629128aef6ca0d351bd6d3733dafd1dd9586``` 
 
 Run the following and take note of the output ```oc adm release info --image-for=hyperkube registry.ci.openshift.org/origin/release-scos@sha256:b3a25b400e66a8d6961dcd52b947629128aef6ca0d351bd6d3733dafd1dd9586```
 1a) Output -```registry.ci.openshift.org/origin/4.16-okd-scos-2024-10-18-035245@sha256:371c966fc1dfb8ad089089140309b84dc54c2a443e2db0dee5ee940120bf0e4e``` (HYPERKUBE)
