@@ -1,6 +1,7 @@
 ---
 draft: false 
 date: 2024-07-30
+authors: ["jaimemagiera"]
 ---
 
 # OKD Pre-Release Testing July 2024

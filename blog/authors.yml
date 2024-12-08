@@ -8,3 +8,20 @@ dmueller:
   title: Red Hat
   url: https://github.com/dmueller2001
   image_url: https://github.com/dmueller2001.png
+zedsm:
+  name: Zed Spencer-Milnes
+  title: Co-chair, OKD Working Group
+  url: https://github.com/GingerGeek
+  image_url: https://github.com/GingerGeek.png
+  socials:
+    x: GingerGeek
+    github: GingerGeek
+    linkedin: zedspencermilnes
+jaimemagiera:
+  name: Jaime Magiera
+  title: Co-chair, OKD Working Group
+  url: https://github.com/JaimeMagiera
+  image_url: https://github.com/JaimeMagiera.png
+  socials:
+    github: JaimeMagiera
+    linkedin: jaime-magiera
