@@ -3,7 +3,7 @@
 {
   "name": "OKD Website Devcontainer",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
@@ -11,7 +11,7 @@
   },
 
   "updateContentCommand": "npm install",
-  "postAttachCommand": "npm start",
+  "postAttachCommand": "npm start-v4",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
