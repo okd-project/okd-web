@@ -14,11 +14,11 @@ In producing OKD 4.16 the decision was taken for both the Node Operating System 
 
 ### Moving from FCOS to SCOS for existing clusters
 
-When you perform an upgrade from 4.15 to 4.16 your node operating system will transition from FCOS to SCOS automatically.
+When you perform an upgrade from 4.15 to 4.16 your node operating system will transition from FCOS to SCOS automatically. 
 
 ### When might I see issues moving from node OS FCOS to SCOS?
 
-In the vast majority of cases, you should be able to move between FCOS and SCOS without issue (as this kind of checkout/rebase is a deliberate usecase of the underlying ostree system).
+In the vast majority of cases, you should be able to move between FCOS and SCOS without issue (as this kind of checkout/rebase is a usecase of the underlying `ostree` system).
 
 Where you may encounter issue is if you have (probably inadvertanly) made use of features from system components that rely on newer package or kernel version that is present in Fedora but isn't present in CoreOS Stream.
 
@@ -26,17 +26,19 @@ Where you may encounter issue is if you have (probably inadvertanly) made use of
 If you experience issues transitioning between FCOS and SCOS please report or start a discussion on our [GitHub project](https://github.com/okd-project/okd).
 :::
 
-We have seen reports related to ext4 features that were enabled on newer FCOS installs but not available on SCOS.
+We have seen reports related to ext4 features that were present on FCOS installs but not available on SCOS.
 
 ### Will you reintroduce a method to support Fedora based node operating systems or base images
 
-We are aware that there are lab, research and experimental reasons which may mean you want to be running newer packages or kernels than what's available in CentOS Stream. Should you have the resource to do so, we encourage contributions in this area to look at how we can provide both alternative Node Operating Systems (ie Fedora) and even base contianer images for certain cluster components. Please get in touch!
+There are lab, research and experimental reasons which may mean you want to be running newer packages or kernels than what's available in CentOS Stream. Should you have the resource to do so, we encourage contributions in this area to look at how we can provide both alternative Node Operating Systems (ie Fedora) and even base contianer images for certain cluster components. Please get in touch!
 
 ### Where can I get boot artifacts for SCOS?
 
-The FCOS team provide a variety of bootable media for FCOS. THe equivalent is not yet available for SCOS but is in progress at the time of writing.
-
+The FCOS team provide a variety of bootable media for FCOS. The equivalent is not yet available for SCOS but is in progress at the time of writing.
 
 ### FCOS -> SCOS for new clusters
 
-As boot artifacts are not currently 
+Until bootable media is available, you can use FCOS as a live boot image to then "pivot" into a SCOS installation based off the cluster ignitiion manifests and SCOS version. Follow the normal installation procedure for your platform.
+
+As mentioned above we have seen issues related to ext4 issues on FCOS systems that prevent the pivot from FCOS to SCOS in certain setups.
+Please see [this issue (#2041)](https://github.com/okd-project/okd/issues/2041) for more information and workarounds.
