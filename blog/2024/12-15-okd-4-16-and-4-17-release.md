@@ -1,8 +1,7 @@
 ---
 title: OKD 4.17 and 4.16 releases
 authors: ["zedsm"]
-date: 2024-12-05
-unlisted: true
+date: 2024-12-15
 ---
 
 We are pleased to announce the release of OKD 4.17, alongside OKD 4.16 to allow upgrades for existing 4.15 clusters.
@@ -19,7 +18,7 @@ After significant work from a few engineers at RedHat, all components that make 
 
 ## I want to install a new cluster
 
-New cluster installations can follow the normal process. Downloads of client tools with the latest versions of OKD 4.17 embedded can be found HERE
+New cluster installations can follow the normal process. Downloads of client tools with the latest versions of OKD 4.17 embedded can be found
 
 ## I want to upgrade an existing cluster
 
