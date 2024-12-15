@@ -82,7 +82,7 @@ const config: Config = {
     // Replace with your project's social card
     announcementBar: {
       id: 'scos-notice',
-      content: 'Update on OKD 4.16, 4.17 and why we\'re switching to SCOS from FCOS: <a href="/blog/2024/06/01/okd-future-statement">read here</a>.',
+      content: 'OKD 4.17 and 4.16 now available: <a href="/blog/2024/12/15/okd-4-16-and-4-17-release">read here</a>.',
       backgroundColor: '#666',
       textColor: '#fff',
       isCloseable: false,
@@ -190,6 +190,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash'],
     },
   } satisfies BaseThemeConfig & ClassicThemeConfig,
 
