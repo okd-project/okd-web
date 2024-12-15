@@ -11,7 +11,7 @@
   },
 
   "updateContentCommand": "npm install",
-  "postAttachCommand": "npm start-v4",
+  "postAttachCommand": "npm run start-v4",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
