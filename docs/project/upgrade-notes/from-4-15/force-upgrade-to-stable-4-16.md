@@ -8,6 +8,8 @@ There is a known issue taking a cluster from 4.15 to 4.16 due to validation chan
 
 In order to allow the upgrade to proceed, we will start an upgrade to 4.16 and then when the error state is achieved, we will intervene and patch component versions to allow the upgrade to finish.
 
+These docs are based off an [original set of instructions provided by aleskandro](https://github.com/okd-project/okd/discussions/1971#discussioncomment-10119718).
+
 ### Cluster Versions
 
 - Starting cluster version: `4.15.0-0.okd-2024-03-10-010116`
