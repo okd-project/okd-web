@@ -18,7 +18,7 @@ After significant work from a few engineers at RedHat, all components that make 
 
 ## I want to install a new cluster
 
-New cluster installations can follow the normal process. Downloads of client tools with the latest versions of OKD 4.17 embedded can be found
+New cluster installations can follow the normal process. Downloads of client tools with the latest versions of OKD 4.17 embedded can be found [here](https://github.com/okd-project/okd/releases/tag/4.17.0-okd-scos.0).
 
 ## I want to upgrade an existing cluster
 
