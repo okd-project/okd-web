@@ -1,7 +1,7 @@
 ---
 title: OKD 4.17 and 4.16 releases
 authors: ["zedsm"]
-date: 2024-12-15
+date: 2024-12-16
 ---
 
 We are pleased to announce the release of OKD 4.17, alongside OKD 4.16 to allow upgrades for existing 4.15 clusters.

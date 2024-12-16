@@ -6,7 +6,7 @@ description: Upgrading to OKD 4.17 for existing 4.15 clusters requires special a
 
 import DocCardList from '@theme/DocCardList';
 
-Please also see the [4.16 and 4.17 release blog post](/blog/2024/12/15/okd-4-16-and-4-17-release).
+Please also see the [4.16 and 4.17 release blog post](/blog/2024/12/16/okd-4-16-and-4-17-release).
 
 There was a large gap of releases after 4.15. 4.16 and 4.17 were released concurrently based off a significantly different build process. OKD 4.16 is only intended to be used as a pass-through for clusters going from 4.15 through to 4.17.
 
