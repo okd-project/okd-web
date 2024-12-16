@@ -30,7 +30,7 @@ We have seen reports related to ext4 features that were present on FCOS installs
 
 ### Will you reintroduce a method to support Fedora based node operating systems or base images
 
-There are lab, research and experimental reasons which may mean you want to be running newer packages or kernels than what's available in CentOS Stream. Should you have the resource to do so, we encourage contributions in this area to look at how we can provide both alternative Node Operating Systems (ie Fedora) and even base contianer images for certain cluster components. Please get in touch!
+There are lab, research and experimental reasons which may mean you want to be running newer packages or kernels than what's available in CentOS Stream. Should you have the resource to do so, we encourage contributions in this area to look at how we can provide both alternative Node Operating Systems (ie Fedora) and even base container images for certain cluster components. Please get in touch!
 
 ### Where can I get boot artifacts for SCOS?
 
