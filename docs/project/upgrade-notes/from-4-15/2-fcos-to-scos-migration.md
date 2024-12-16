@@ -1,7 +1,7 @@
 ---
 title: Node Operating System changes to SCOS
-sidebar_label: FCOS->SCOS Notes & Known Issues
-description: The node operating system that runs OKD has changed from a Fedora base to a CentOS Stream base.
+sidebar_label: FCOS -> SCOS Migration
+description: OKD Node OS has changed from a Fedora to a CentOS Stream base.
 ---
 
 ### Background

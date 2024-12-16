@@ -16,5 +16,9 @@ Your cluster will need to pass from OKD 4.15, to the latest version of 4.16 befo
 
 Upgrades should take place from the March 2024 FCOS stream of OKD (`4.15.0-0.okd-2024-03-10-010116`), upgrades from other versions may require additional work.
 
+:::tip
+Read these notes in conjunction with the usual [Product Documentation for Upgrading](https://docs.okd.io/4.16/updating/index.html)
+:::
+
 <DocCardList />
 
