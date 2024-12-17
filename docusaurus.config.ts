@@ -262,7 +262,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'icon',
-        href: 'favicon.ico',
+        href: deployPath + 'favicon.ico',
         sizes: "32x32"
       }
     },
@@ -270,7 +270,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'icon',
-        href: 'img/brand/logo/o-icon.svg',
+        href: deployPath + 'img/brand/logo/o-icon.svg',
         type: "image/svg+xml"
       }
     },
@@ -278,14 +278,14 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'apple-touch-icon',
-        href: 'img/brand/solid-icon-180x',
+        href: deployPath + 'img/brand/solid-icon-180x',
       }
     },
     {
       tagName: 'link',
       attributes: {
         rel: 'manifest',
-        href: 'manifest.json',
+        href: deployPath + 'manifest.json',
       }
     },
   ]
