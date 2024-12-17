@@ -288,12 +288,6 @@ const config: Config = {
         href: 'manifest.json',
       }
     },
-    {
-      tagName: 'base',
-      attributes: {
-        href: deployPath
-      }
-    }
   ]
 };
 
