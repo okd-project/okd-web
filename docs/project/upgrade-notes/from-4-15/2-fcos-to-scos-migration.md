@@ -16,6 +16,10 @@ In producing OKD 4.16 the decision was taken for both the Node Operating System 
 
 When you perform an upgrade from 4.15 to 4.16 your node operating system will transition from FCOS to SCOS automatically. 
 
+:::danger
+[You must disable Secure Boot before pivoting from FCOS to SCOS](#scos-does-not-support-secure-boot). Secure Boot is enabled by default on VMWare platforms.
+:::
+
 ### When might I see issues moving from node OS FCOS to SCOS?
 
 In the vast majority of cases, you should be able to move between FCOS and SCOS without issue (as this kind of checkout/rebase is a usecase of the underlying `ostree` system).
@@ -42,3 +46,22 @@ Until bootable media is available, you can use FCOS as a live boot image to then
 
 As mentioned above we have seen issues related to ext4 issues on FCOS systems that prevent the pivot from FCOS to SCOS in certain setups.
 Please see [this issue (#2041)](https://github.com/okd-project/okd/issues/2041) for more information and workarounds.
+
+### SCOS does not Support Secure Boot
+
+:::danger
+Migrating a node from FCOS to SCOS whilst secure boot is enabled may make the node **unbootable**.
+:::
+
+
+CentOS Stream 9 does not currently support Secure Boot in all environments. Work is being done within CentOS Stream to ensure that either CentOS Stream 9 gains secure boot or to ensure that it is available within CentOS Stream 10.
+
+FCOS does support Secure Boot and so if secure boot is enabled on your node then the pivot from FCOS to SCOS will render the node **unbootable** until Secure Boot is disabled. The usual backout method of FCOS/SCOS will likely not work due to where this occurs in the boot process.
+
+#### Why?
+
+Briefly, secure boot is usually implemented in the Linux ecosystem by distributions (such as Fedora, Ubuntu and CentOS) using a piece of software called [`shim`](https://github.com/rhboot/shim). `shim` is a simple piece of software that verifies and runs the "real" bootloader of the distribution (e.g. `grub`), ensuring that it is properly signed by the distribution's relevant certificates. The maintainers of the Linux distribution submit their build of `shim` to a [review board](https://github.com/rhboot/shim-review/blob/main/docs/submitting.md) and then to bodies like Microsoft who will [sign the shim](https://techcommunity.microsoft.com/blog/hardwaredevcenter/updated-uefi-signing-requirements/1062916) so that it is then bootable on machines with Secure Boot enabled (that use the Microsoft Secure Boot CAs).
+
+At boot time, the UEFI environment verifies that the `shim` is properly signed by a CA (such as Microsoft), permits the boot and then the `shim` verifies that the "real" bootloader (e.g. `grub` or `systemd-boot`) is properly signed by the distribution before delegating the rest of the boot to it. This allows the distribution to independently update the "real" bootloader without going through the lengthy verification process that the `shim` does (which is a much smaller and less updated piece of software).
+
+Although CentOS Stream 9 has a shim, it has [not completed the review board process](https://github.com/rhboot/shim-review/issues/399) and so is not currently trusted by the majority of Secure Boot enabled systems. If you were so inclined, you could manually trust the shim through "Machine Owner Keys" using tools such as `mokutil`, however that's outside the scope of this document.
