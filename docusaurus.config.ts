@@ -256,6 +256,12 @@ const config: Config = {
         ],
       },
     ],
+    [
+      '@docusaurus/plugin-svgr', 
+      {
+        // svgrConfig: {}
+      }
+    ],
   ],
   headTags: [
     {
