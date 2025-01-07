@@ -1,12 +1,20 @@
-# Cluster Upgrade
+---
+title: Extra steps for users with Hashicorp Vault and similar applications
+sidebar_label: Hashicorp Vault & default registry semantics
+description: Default registry changes effects Vault and other applications
+---
 
-## Introduction
 Hashicorp Vault is known to cause trouble while upgrading. The issues are not solely related to Hashicorp Vault but can occur on any other application stack with similar characteristics. 
+
 While upgrading OKD 4.15 cluster to 4.16 and afterwards 4.16 to 4.17 (auto upgrade), you could most probably run into the same issues when your Hashicorp Vault/ other applications meet the following requirements.
-A `PodDisruptionBudget` is set, e.g. 2 of 3 Pods have to be up and running (ready).
+- A `PodDisruptionBudget` is set, e.g. 2 of 3 Pods have to be up and running (ready).
+
 Usually the compute nodes are updated one after the other, but if one of the vault pods can't achieve a ready state you reach the minimal allowed pods 2 of 3. Another compute node can't be drained because of the `PodDisruptionBudget` as it would violate the 2 of 3 requirement. In that special case, let's say compute node 0 was updated, vault pod restarted and therefore is sealed. Only after you manually unseal it, the pod will become ready. If another application has a similar behavior, needing some manual work to become ready, you will face the same issue.
+
 If you think that all your pods start up automatically, you are not using Hashicorp Vault and there is no chance that you could run into these issues, I'm sorry to say that, but you're wrong and I will give you another example.
+
 In OKD 4.15 you could have deployed your application stack using `image: foo/bar:1.0.0` (Registry not explicitly set). By default you would expect, and this was working so far, that the image is pulled from docker hub. 
+
 Back to `PodDisruptionBudget` and a slightly different behavior on 4.16. During the 4.15 to 4.16 Upgrade, your application has e.g. 2 of 3 pods (ready) requirement, one pod is not coming up, because suddenly it tries to pull from the Red Hat registry and the events could show something like `Failed to pull image foo/bar:1.0.0”: unable to retrieve auth token: invalid username/password: unauthorized: Please login to the Red Hat Registry using your Customer Portal credentials`. Which you typically not see right away. Two pods are running, one is stuck here, the cluster update process can't continue to drain another node, as it would violate the `PodDisruptionBudget` setting. So it's not only about Hashicorp Vault and sealed pods, but similar setups, maybe not specifying the registry in deployments and using something like `PodDisruptionBudget`.
 
 ## Recommendation
