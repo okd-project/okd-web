@@ -1,4 +1,4 @@
-# Contributor Community
+# Volunteer Opportunities 
 
 <!--- cSpell:ignore virt -->
 
