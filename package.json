@@ -30,14 +30,14 @@
     "@docusaurus/plugin-svgr": "^3.7.0",
     "@docusaurus/theme-classic": "^3.7.0",
     "@docusaurus/theme-mermaid": "^3.7.0",
-    "@easyops-cn/docusaurus-search-local": "^0.49.1",
+    "@easyops-cn/docusaurus-search-local": "^0.49.2",
     "@mdx-js/react": "^3.1.0",
     "clsx": "^2.1.1",
     "docusaurus-plugin-sass": "^0.2.6",
     "prism-react-renderer": "^2.4.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sass": "^1.86.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "sass": "^1.86.3",
     "sass-loader": "^16.0.5"
   },
   "devDependencies": {
@@ -46,7 +46,7 @@
     "@docusaurus/tsconfig": "^3.7.0",
     "@docusaurus/types": "^3.7.0",
     "@types/gtag.js": "^0.0.20",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.3"
   },
   "browserslist": {
     "production": [
