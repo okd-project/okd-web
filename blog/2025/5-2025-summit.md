@@ -1,3 +1,9 @@
+---
+title: Just us at Red Hat Summit 2025
+authors: ["jaimemagiera"]
+date: 2025-05-19
+---
+
 Please join us at Red Hat Summit 2025 in Boston for an update on OKD and an opportunity to network with members of our community. More details here...
 
 https://events.experiences.redhat.com/widget/redhat/sum25/SessionCatalog2025/session/1744912463342001NaSw
