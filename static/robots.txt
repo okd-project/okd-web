@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /__docusaurus/
+
+User-agent: atlassian-bot
+Disallow: /__docusaurus/
