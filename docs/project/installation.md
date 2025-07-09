@@ -22,7 +22,7 @@ To obtain the openshift installer and client, visit [releases](https://github.co
 You can verify the downloads using:
 
 ```shell
-curl https://www.okd.io/vrutkovs.pub | gpg --import
+curl -L https://www.okd.io/vrutkovs.pub | gpg --import
 ```
 
 !!!output
