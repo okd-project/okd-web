@@ -1,30 +1,31 @@
-# Operator Hub Catalogs
+# Operators
 
-<!--- cSpell:ignore Devworkspace devspaces -->
+## What are Operators?
+The [Operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is the concept of running "meta" software within your cluster to manage your applications 
+and supporting components.
 
-!!!Warning
-    This section is under construction
-    
-OKD contains many operators which deliver the base platform, however there is also additional capabilities delivered as operators available via the Operator Hub.
+For example, you as a cluster operator may provision a `OpensourceDatabaseSoftware` 
+(an operator-defined [Custom Resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)), and the operator would take care of provisioning the underlying resources
+(Deployments, ConfigMap, Secrets, Pods, etc) on your behalf, based on the configuration you provide.
 
-The operator hub story for OKD isn't ideal currently (as at OKD 4.10) as OKD shares source with OpenShift, the commercial sibling to OKD.  OpenShift has additional operator hub catalogs provided by Red Hat, which deliver additional capabilities as part of the supported OpenShift product. These additional capabilities are not currently provided to OKD.
+Within OKD, we use a suite of tools called [Operator Framework](https://operatorframework.io/) to manage operators within the cluster 
+(an operator for operators). With Operator Framework we can access operators from central catalogs (such as this one) 
+and install them within our cluster.
 
-OpenShift and OKD share a community catalog of operators, which are a subset of the operators available in the [OperatorHub](https://operatorhub.io)<!--{target=_blank} comment for docusaurus compat-->.  The operators in the community catalog should run on OKD/OpenShift and will include any additional configuration, such as security context configuration.
+## Where can I find the Red Hat operators?
 
-However, where an operator in the community catalog has a dependency that Red Hat supports and delivers as part of the additional OpenShift operator catalog, then the community catalog operator will specify the dependency from the supported OpenShift catalog.  This results in missing dependency errors when attempting to install on OKD.
+Red Hat operators are not shipped with OKD since they require a subscription to Red Hat OpenShift however, there is a
+community effort to provide a curated set of operators that are compatible with OKD, known as the 
+[OKDerators](./okderators.md) catalog.
 
-!!!Question
-    - will the proposed OKD catalog solve all the dependency issues in the community catalog?
-    - what is the timeline for the OKD catalog?
+## Why do you need OKD-adapted operators/applications?
+Compared to many other Kubernetes distributions, OKD has additional security restrictions, assumptions and features 
+that mean an operator or application that would work "out of the box" on a more vanilla Kubernetes distribution, 
+does not function on OKD. For example, additional security profiles may need to be applied, or MachineConfigs applied
+to add node features.
 
-!!!Todo
-    Some useful repo links - do we need to create instructions for specific operators?
+## Links
 
-    - Community operator source
-        - [docs](https://redhat-openshift-ecosystem.github.io/community-operators-prod/)
-        - [repo](https://github.com/redhat-openshift-ecosystem/community-operators-prod)
-    - OKD operators : [repo](https://github.com/redhat-openshift-ecosystem/okd-operators)
-    - Marketplace operator : [repo](https://github.com/operator-framework/operator-marketplace)
-    - Devworkspace operator : [repo](https://github.com/devfile/devworkspace-operator)
-    - GitOps operator : [repo](https://github.com/redhat-developer/gitops-operator)
-    - devspaces (crw) : [public repo](https://github.com/redhat-developer/devspaces)
+- [Operator Framework](https://operatorframework.io/)
+- [OperatorHub.io](https://operatorhub.io/)
+- [Community Operators](https://github.com/redhat-openshift-ecosystem/community-operators-prod)
