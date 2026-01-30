@@ -1,0 +1,40 @@
+# This workflow verifies that pull requests build successfully.
+# It runs on all PRs targeting the main branch and blocks merging if the build fails.
+name: PR Build Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Website
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build website
+        run: npm run build
+        env:
+          OKD_DEPLOY_URL: ${{ vars.OKD_DEPLOY_URL }}
+      
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: website-build
+          path: build
+          retention-days: 30
