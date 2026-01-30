@@ -1,9 +1,6 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
   "name": "OKD Website Devcontainer",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest"
@@ -13,7 +10,6 @@
   "updateContentCommand": "npm install",
   "postAttachCommand": "npm run start-v4",
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
 
   "portsAttributes": {
@@ -21,11 +17,13 @@
       "label": "Application",
       "onAutoForward": "openBrowser"
     }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ]
+    }
   }
 
-  // Configure tool-specific properties.
-  // "customizations": {},
-
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
 }
