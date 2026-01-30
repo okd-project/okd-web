@@ -1,3 +1,5 @@
+# This workflow verifies that pull requests build successfully.
+# It runs on all PRs targeting the main branch and blocks merging if the build fails.
 name: PR Build Check
 
 on:
