@@ -30,3 +30,11 @@ jobs:
         run: npm run build
         env:
           OKD_DEPLOY_URL: ${{ vars.OKD_DEPLOY_URL }}
+      
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: website-build
+          path: build
+          retention-days: 30
