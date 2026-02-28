@@ -83,7 +83,7 @@ const config: Config = {
     // Replace with your project's social card
     announcementBar: {
       id: 'scos-notice',
-      content: 'OKD 4.17 and 4.16 now available: <a href="/blog/2024/12/16/okd-4-16-and-4-17-release">read here</a>.',
+      content: 'Current Release: 4.21 - Current Engineering Candidate: 4.22',
       backgroundColor: '#666',
       textColor: '#fff',
       isCloseable: false,
