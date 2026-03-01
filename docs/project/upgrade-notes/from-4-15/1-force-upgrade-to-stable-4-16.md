@@ -115,7 +115,7 @@ The script *relies on the above ordering of the environment variables*. If your 
 
 ### `upgrade-4-15-to-4-16-unsafe.sh`
 ```bash
-oc adm upgrade --allow-explicit-upgrade --to-image quay.io/okd/scos-release@sha256:0de353901f9ab5ecb14c2583d16d24561df23d1bf46fe03f218f2ffb8f134096
+oc adm upgrade --allow-explicit-upgrade --force --to-image quay.io/okd/scos-release@sha256:0de353901f9ab5ecb14c2583d16d24561df23d1bf46fe03f218f2ffb8f134096
 
 sleep 60
 
