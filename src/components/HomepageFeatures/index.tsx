@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
       <>
         OKD adopts developing best practise and technology. A great platform for technologists and students 
         to learn, experiment and contribute across the cloud ecosystem. For OpenShift contributors and partners
-        our technical similarity makes us an ideal lab and development environemnt.
+        our technical similarity makes us an ideal lab and development environment.
       </>
     ),
   },
