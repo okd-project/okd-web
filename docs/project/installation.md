@@ -25,41 +25,44 @@ You can verify the downloads using:
 curl https://www.okd.io/vrutkovs.pub | gpg --import
 ```
 
-!!!output
-    ```text
-        gpg: key 3D54B6723B20C69F: public key "Vadim Rutkovsky <vadim@vrutkovs.eu>" imported
-        gpg: Total number processed: 1
-        gpg:               imported: 1
-    ```
+Expected output
+  ```shell
+      gpg: key 3D54B6723B20C69F: public key "Vadim Rutkovsky <vadim@vrutkovs.eu>" imported
+      gpg: Total number processed: 1
+      gpg:               imported: 1
+  ```
+
+And then:
 
 ```shell
 gpg --verify sha256sum.txt.asc sha256sum.txt
 ```
 
-!!!output
-    ```text
-    gpg: Signature made Mon May 25 18:48:22 2020 CEST
-    gpg:                using RSA key DB861D01D4D1138A993ADC1A3D54B6723B20C69F
-    gpg: Good signature from "Vadim Rutkovsky <vadim@vrutkovs.eu>" [ultimate]
-    gpg:                 aka "Vadim Rutkovsky <vrutkovs@redhat.com>" [ultimate]
-    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: DB86 1D01 D4D1 138A 993A  DC1A 3D54 B672 3B20 C69F
-    ```
+with the expected output:
+  ```text
+  gpg: Signature made Mon May 25 18:48:22 2020 CEST
+  gpg:                using RSA key DB861D01D4D1138A993ADC1A3D54B6723B20C69F
+  gpg: Good signature from "Vadim Rutkovsky <vadim@vrutkovs.eu>" [ultimate]
+  gpg:                 aka "Vadim Rutkovsky <vrutkovs@redhat.com>" [ultimate]
+  gpg: WARNING: This key is not certified with a trusted signature!
+  gpg:          There is no indication that the signature belongs to the owner.
+  Primary key fingerprint: DB86 1D01 D4D1 138A 993A  DC1A 3D54 B672 3B20 C69F
+  ```
 
+And then:
 ```shell
 sha256sum -c sha256sum.txt
 ```
 
-!!!output
-    ```text
-    release.txt: OK
-    openshift-client-linux-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    openshift-client-mac-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    openshift-client-windows-4.4.0-0.okd-2020-05-23-055148-beta5.zip: OK
-    openshift-install-linux-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    openshift-install-mac-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    ```
+With this output
+ ```text
+  release.txt: OK
+  openshift-client-linux-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
+  openshift-client-mac-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
+  openshift-client-windows-4.4.0-0.okd-2020-05-23-055148-beta5.zip: OK
+  openshift-install-linux-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
+  openshift-install-mac-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
+ ```
 
 Please note that each nightly release is pruned after 72 hours. If the nightly that you installed was pruned, the cluster may be unable to pull necessary images and may show errors for various functionality (including updates).
 
