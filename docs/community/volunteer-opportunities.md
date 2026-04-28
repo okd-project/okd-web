@@ -6,5 +6,6 @@ The OKD Working Group welcomes all contributions. Here are some specific areas w
 
 | Item | Description | Contact |
 | --- | ----------- | --- |
+|  OKDerators | Help in the building of operators for the OKD Operator Catalog  | Owen Howard (Slack preferred) |
 |  UPI (libvirt) | Testing UPI installs/upgrades of OKD versions, testing functionality includes:<br/>- LDAP auth<br/>- Trident Operator<br/>- Worker machineset scaling (Currently PXE boot from FCOS 37 and pivot to SCOS version defined by cluster)<br/>- Monitoring stack with persistence  | Tyrone Wilson (Slack preferred) |
 
