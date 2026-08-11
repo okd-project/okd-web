@@ -50,4 +50,4 @@ Our choice of operators is currently driven by what's included in the RedHat Ope
 
 ## Links
 - [Catalog repository](https://github.com/okd-project/okderators-catalog-index)
-- [Build pipelines repository](https://github.com/okd-project/okd-operator-pipelines)
+- [Build pipeline repository](https://github.com/okd-project/okd-operator-pipeline)
