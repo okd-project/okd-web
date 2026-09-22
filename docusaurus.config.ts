@@ -83,7 +83,7 @@ const config: Config = {
     // Replace with your project's social card
     announcementBar: {
       id: 'scos-notice',
-      content: 'Current Release: 4.21 - Current Engineering Candidate: 4.22',
+      content: 'Current Release: 5.0 - Current Engineering Candidate: 5.0',
       backgroundColor: '#666',
       textColor: '#fff',
       isCloseable: false,
