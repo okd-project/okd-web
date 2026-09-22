@@ -4,20 +4,13 @@ authors: ["jatinsu"]
 date: 2026-09-18
 ---
 
-**TL;DR:** OKD is switching to its own Cincinnati update service at `updates.okd.io` — switch a cluster over with:
-
-```sh
-oc patch clusterversion version --type merge \
-  -p '{"spec":{"upstream":"https://updates.okd.io/api/updates/graph","channel":"stable-5.0"}}'
-```
-
 OKD clusters now have a dedicated update service. **OKD Cincinnati** is live at
 [updates.okd.io](https://updates.okd.io) and serves update graphs to OKD/SCOS clusters over the
 same Cincinnati update protocol that OpenShift clusters have used for years.
 
 <!-- truncate -->
 
-Until now, OKD relied on the release controller to create upgrade edges — something it was never
+Until now, OKD relied on the release controller to create upgrade edges which was something it was never
 really built to do. That caused a number of problems, from
 [`ec` versions leaking into stable channels](https://github.com/okd-project/okd/issues/2315) to the
 [inability to block already-accepted releases](https://github.com/okd-project/okd/issues/2348).
@@ -43,12 +36,11 @@ code, but every data source points at the OKD world instead of OpenShift:
 
 ## Channels available today
 
-At launch, OKD Cincinnati serves three channels:
+At launch, OKD Cincinnati serves two channels:
 
 | Channel         | Covers               |
 | --------------- | -------------------- |
-| `stable-4.22`   | 4.21 → 4.22          |
-| `stable-5.0`    | 4.22 → 5.0           |
+| `stable-5.0`    | 5.0                  |
 | `candidate-5.0` | 4.22 `ec` → 5.0 `ec` |
 
 Each stable channel carries the prior minor plus its own, so you always have a supported path onto
@@ -73,7 +65,7 @@ the load test now re-runs automatically after every stage deploy.
 
 ## Pointing your cluster at it
 
-To receive updates, set your cluster's upstream to the OKD graph endpoint and pick a channel:
+To receive updates, first upgrade to 5.0.0-okd-scos.0, then set your cluster's upstream to the OKD graph endpoint and pick a channel:
 
 ```sh
 oc patch clusterversion version --type merge \
