@@ -9,9 +9,9 @@ OKD supports 2 types of cluster install options:
 - Installer-provisioned infrastructure (IPI)
 - User-provisioned infrastructure (UPI)
 
-IPI is a largely automated install process, where the installer is responsible for setting up the infrastructure, where UPI requires you to set up the base infrastructure.  You can find further details in [the documentation](https://docs.okd.io/latest/installing/index.html)<!--{target=_blank} comment for docusaurus compat-->
+IPI is a largely automated install process, where the installer is responsible for setting up the infrastructure, where UPI requires you to set up the base infrastructure.  You can find further details in [the documentation](https://docs.okd.io/latest/installing/overview/index.html)<!--{target=_blank} comment for docusaurus compat-->
 
-OKD support installation on bare metal hardware, a number of virtualization platforms and a number of cloud platforms, so you need to decide where you want to install OKD and that your environment has sufficient resources for the cluster to operate.  The [documentation](https://docs.okd.io/latest/installing/installing-preparing.html)<!--{target=_blank} comment for docusaurus compat--> has more information to help you plan your installation.
+OKD support installation on bare metal hardware, a number of virtualization platforms and a number of cloud platforms, so you need to decide where you want to install OKD and that your environment has sufficient resources for the cluster to operate.  The [documentation](https://docs.okd.io/latest/installing/overview/installing-preparing.html)<!--{target=_blank} comment for docusaurus compat--> has more information to help you plan your installation.
 
 If you want to install on a typical developer workstation, then [Code-Ready Containers](crc.md) may be a better options, as that is a cut-down installation designed to run on limited compute and memory resources.
 
@@ -22,44 +22,64 @@ To obtain the openshift installer and client, visit [releases](https://github.co
 You can verify the downloads using:
 
 ```shell
-curl https://www.okd.io/vrutkovs.pub | gpg --import
-```
-
-!!!output
-    ```text
-        gpg: key 3D54B6723B20C69F: public key "Vadim Rutkovsky <vadim@vrutkovs.eu>" imported
-        gpg: Total number processed: 1
-        gpg:               imported: 1
-    ```
-
-```shell
-gpg --verify sha256sum.txt.asc sha256sum.txt
-```
-
-!!!output
-    ```text
-    gpg: Signature made Mon May 25 18:48:22 2020 CEST
-    gpg:                using RSA key DB861D01D4D1138A993ADC1A3D54B6723B20C69F
-    gpg: Good signature from "Vadim Rutkovsky <vadim@vrutkovs.eu>" [ultimate]
-    gpg:                 aka "Vadim Rutkovsky <vrutkovs@redhat.com>" [ultimate]
-    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: DB86 1D01 D4D1 138A 993A  DC1A 3D54 B672 3B20 C69F
-    ```
-
-```shell
 sha256sum -c sha256sum.txt
 ```
 
-!!!output
-    ```text
-    release.txt: OK
-    openshift-client-linux-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    openshift-client-mac-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    openshift-client-windows-4.4.0-0.okd-2020-05-23-055148-beta5.zip: OK
-    openshift-install-linux-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    openshift-install-mac-4.4.0-0.okd-2020-05-23-055148-beta5.tar.gz: OK
-    ```
+```text
+ccoctl-linux-4.21.0-okd-scos.9.tar.gz: OK
+sha256sum: ccoctl-linux-rhel8-4.21.0-okd-scos.9.tar.gz: No such file or directory
+ccoctl-linux-rhel8-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: ccoctl-linux-rhel9-4.21.0-okd-scos.9.tar.gz: No such file or directory
+ccoctl-linux-rhel9-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+openshift-client-linux-4.21.0-okd-scos.9.tar.gz: OK
+sha256sum: openshift-client-linux-amd64-rhel8-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-amd64-rhel8-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-amd64-rhel9-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-amd64-rhel9-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-arm64-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-arm64-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-arm64-rhel8-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-arm64-rhel8-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-arm64-rhel9-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-arm64-rhel9-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-ppc64le-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-ppc64le-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-ppc64le-rhel8-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-ppc64le-rhel8-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-ppc64le-rhel9-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-ppc64le-rhel9-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-s390x-rhel8-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-s390x-rhel8-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-linux-s390x-rhel9-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-linux-s390x-rhel9-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-mac-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-mac-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-mac-arm64-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-client-mac-arm64-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-client-windows-4.21.0-okd-scos.9.zip: No such file or directory
+openshift-client-windows-4.21.0-okd-scos.9.zip: FAILED open or read
+openshift-install-linux-4.21.0-okd-scos.9.tar.gz: OK
+sha256sum: openshift-install-linux-arm64-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-install-linux-arm64-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-install-mac-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-install-mac-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+sha256sum: openshift-install-mac-arm64-4.21.0-okd-scos.9.tar.gz: No such file or directory
+openshift-install-mac-arm64-4.21.0-okd-scos.9.tar.gz: FAILED open or read
+release.txt: OK
+sha256sum: WARNING: 18 listed files could not be read
+```
+
+:::note
+
+When checking the hash integrity of the release, only the downloaded files could be checked, all the others will fail: it is expected, because the file are not present.
+
+:::
+
+:::warning
+
+Despite releases and `sha256sum.txt` being signed, the gpg public key is not available at the moments: we're working to address this.
+
+:::
 
 Please note that each nightly release is pruned after 72 hours. If the nightly that you installed was pruned, the cluster may be unable to pull necessary images and may show errors for various functionality (including updates).
 
@@ -69,8 +89,11 @@ Alternatively, if you have the openshift client `oc` already installed, you can 
 oc adm release extract --tools quay.io/openshift/okd:4.5.0-0.okd-2020-07-14-153706-ga
 ```
 
-!!!Note
-    You need a 4.x version of `oc` to extract the installer and the latest client. You can initially use the [official Openshift client (mirror)](https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/)<!--{target=_blank} comment for docusaurus compat-->
+:::note
+
+You need a 4.x version of `oc` to extract the installer and the latest client. You can initially use the [official Openshift client (mirror)](https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/)<!--{target=_blank} comment for docusaurus compat-->
+
+:::
 
 There are full instructions in the [OKD documentation](https://docs.okd.io/latest/installing/installing-preparing.html)<!--{target=_blank} comment for docusaurus compat--> for each supported platform, but the main steps for an IPI install are:
 
@@ -93,5 +116,8 @@ To undo the installation and delete any cloud resources created by the installer
 openshift-install destroy cluster
 ```
 
-!!!Note
-    The OpenShift client tools for your cluster can be downloaded from the help drop down menu at the top of the web console.
+:::note
+
+The OpenShift client tools for your cluster can be downloaded from the help drop down menu at the top of the web console.
+
+:::
