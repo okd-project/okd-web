@@ -25,27 +25,25 @@ You can verify the downloads using:
 curl https://www.okd.io/vrutkovs.pub | gpg --import
 ```
 
-!!!output
-    ```text
-        gpg: key 3D54B6723B20C69F: public key "Vadim Rutkovsky <vadim@vrutkovs.eu>" imported
-        gpg: Total number processed: 1
-        gpg:               imported: 1
-    ```
+```text
+gpg: key 3D54B6723B20C69F: public key "Vadim Rutkovsky <vadim@vrutkovs.eu>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+```
 
 ```shell
 gpg --verify sha256sum.txt.asc sha256sum.txt
 ```
 
-!!!output
-    ```text
-    gpg: Signature made Mon May 25 18:48:22 2020 CEST
-    gpg:                using RSA key DB861D01D4D1138A993ADC1A3D54B6723B20C69F
-    gpg: Good signature from "Vadim Rutkovsky <vadim@vrutkovs.eu>" [ultimate]
-    gpg:                 aka "Vadim Rutkovsky <vrutkovs@redhat.com>" [ultimate]
-    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: DB86 1D01 D4D1 138A 993A  DC1A 3D54 B672 3B20 C69F
-    ```
+```text
+gpg: Signature made Mon May 25 18:48:22 2020 CEST
+gpg:                using RSA key DB861D01D4D1138A993ADC1A3D54B6723B20C69F
+gpg: Good signature from "Vadim Rutkovsky <vadim@vrutkovs.eu>" [ultimate]
+gpg:                 aka "Vadim Rutkovsky <vrutkovs@redhat.com>" [ultimate]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: DB86 1D01 D4D1 138A 993A  DC1A 3D54 B672 3B20 C69F
+```
 
 ```shell
 sha256sum -c sha256sum.txt
