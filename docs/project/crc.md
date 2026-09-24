@@ -6,7 +6,7 @@
 ## Download CodeReady Containers for OKD
 
 Run a developer instance of OKD4 on your local workstation with CodeReady Containers built for OKD - >No Pull Secret Required!
-The [Getting Started Guide](https://crc.dev/crc/)<!--{target=_blank} comment for docusaurus compat--> explains how to install and use CodeReady Containers.
+The [Getting Started Guide](https://crc.dev/docs/introducing/)<!--{target=_blank} comment for docusaurus compat--> explains how to install and use CodeReady Containers.
 
 You can fetch crc binaries without Red Hat subscription [here](https://developers.redhat.com/content-gateway/rest/mirror2/pub/openshift-v4/clients/crc/latest/)
 
