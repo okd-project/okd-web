@@ -1,0 +1,14 @@
+.patchSupport {
+  background: var(--ifm-color-emphasis-100);
+  border-block: 1px solid var(--ifm-color-emphasis-300);
+  padding-block: 2rem;
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    max-width: 760px;
+  }
+}
