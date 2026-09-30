@@ -22,12 +22,12 @@ To obtain the openshift installer and client, visit [releases](https://github.co
 You can verify the downloads using:
 
 ```shell
-curl https://www.okd.io/vrutkovs.pub | gpg --import
+curl https://www.okd.io/okd-maintainers.pub | gpg --import
 ```
 
 !!!output
     ```text
-        gpg: key 3D54B6723B20C69F: public key "Vadim Rutkovsky <vadim@vrutkovs.eu>" imported
+        gpg: key F23087F7B3AF7E5A: public key "OKD Maintainers (Key signing OKD releases) <maintainers@okd.io>" imported
         gpg: Total number processed: 1
         gpg:               imported: 1
     ```
@@ -38,13 +38,11 @@ gpg --verify sha256sum.txt.asc sha256sum.txt
 
 !!!output
     ```text
-    gpg: Signature made Mon May 25 18:48:22 2020 CEST
-    gpg:                using RSA key DB861D01D4D1138A993ADC1A3D54B6723B20C69F
-    gpg: Good signature from "Vadim Rutkovsky <vadim@vrutkovs.eu>" [ultimate]
-    gpg:                 aka "Vadim Rutkovsky <vrutkovs@redhat.com>" [ultimate]
-    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg:          There is no indication that the signature belongs to the owner.
-    Primary key fingerprint: DB86 1D01 D4D1 138A 993A  DC1A 3D54 B672 3B20 C69F
+    gpg: Signature made Thu Sep 17 13:39:08 2026 IST
+    gpg:                using EDDSA key 82E40BC298E7F5D2877586FDF23087F7B3AF7E5A
+    gpg:                issuer "maintainers@okd.io"
+    gpg: Good signature from "OKD Maintainers (Key signing OKD releases) <maintainers@okd.io>" [unknown]
+    Primary key fingerprint: 82E4 0BC2 98E7 F5D2 8775  86FD F230 87F7 B3AF 7E5A
     ```
 
 ```shell
