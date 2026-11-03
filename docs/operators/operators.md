@@ -21,7 +21,7 @@ However, where an operator in the community catalog has a dependency that Red Ha
     Some useful repo links - do we need to create instructions for specific operators?
 
     - Community operator source
-        - [docs](https://redhat-openshift-ecosystem.github.io/community-operators-prod/)
+        - [docs][(https://redhat-openshift-ecosystem.github.io/operator-pipelines/)
         - [repo](https://github.com/redhat-openshift-ecosystem/community-operators-prod)
     - OKD operators : [repo](https://github.com/redhat-openshift-ecosystem/okd-operators)
     - Marketplace operator : [repo](https://github.com/operator-framework/operator-marketplace)
