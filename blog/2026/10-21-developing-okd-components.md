@@ -58,18 +58,18 @@ Now make your change.
 
 ## Step 1: Build the component for OKD (SCOS)
 
-The MCO's `Dockerfile.rhel7` has two `FROM` lines, and both point at images on the OpenShift CI registry. Swap them
-for images anyone can pull:
+The MCO's `Dockerfile.rhel7` has two `FROM` lines, and both point at images on the OpenShift CI registry:
 
-- **Builder stage:** `registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.26-openshift-5.0` requires CI credentials.
-  Replace it with the public `registry.access.redhat.com/ubi9/go-toolset:1.26` (match the Go version in `go.mod`), and
-  install the `-devel` packages the build links against.
-- **Final stage:** replace `registry.ci.openshift.org/ocp/5.0:base-rhel9` with the SCOS base image,
-  `registry.ci.openshift.org/origin/scos-5.0:base-stream9`. This one is publicly pullable.
+- **Final stage (this is what makes it OKD):** replace `registry.ci.openshift.org/ocp/5.0:base-rhel9` with the SCOS
+  base image, `registry.ci.openshift.org/origin/scos-5.0:base-stream9`. This image is publicly pullable.
+- **Builder stage (only because the CI image is private):** OKD CI keeps the same builder as OpenShift,
+  `registry.ci.openshift.org/ocp/builder:rhel-9-golang-1.26-openshift-5.0`, but pulling it requires CI credentials.
+  Replace it with the public `golang` image at the Go version in `go.mod`, and install the libraries the build links
+  against.
 
 ```shell
 sed \
-  -e 's|^FROM registry.ci.openshift.org/ocp/builder:.* AS rhel9-builder|FROM registry.access.redhat.com/ubi9/go-toolset:1.26 AS rhel9-builder\nUSER 0\nRUN dnf install -y gpgme-devel libassuan-devel \&\& dnf clean all|' \
+  -e 's|^FROM registry.ci.openshift.org/ocp/builder:.* AS rhel9-builder|FROM docker.io/library/golang:1.26.10 AS rhel9-builder\nRUN apt-get update \&\& apt-get install -y libgpgme-dev|' \
   -e 's|^FROM registry.ci.openshift.org/ocp/5.0:base-rhel9|FROM registry.ci.openshift.org/origin/scos-5.0:base-stream9|' \
   Dockerfile.rhel7 > Dockerfile.okd
 ```
@@ -79,9 +79,8 @@ This uses GNU `sed`. On macOS, install `gnu-sed` and run `gsed`, or make the sam
 The top of each stage in `Dockerfile.okd` should now look like this:
 
 ```dockerfile
-FROM registry.access.redhat.com/ubi9/go-toolset:1.26 AS rhel9-builder
-USER 0
-RUN dnf install -y gpgme-devel libassuan-devel && dnf clean all
+FROM docker.io/library/golang:1.26.10 AS rhel9-builder
+RUN apt-get update && apt-get install -y libgpgme-dev
 ...
 FROM registry.ci.openshift.org/origin/scos-5.0:base-stream9
 ```
@@ -282,17 +281,14 @@ for the branch you're building.
 
 ### Build notes
 
-- **Builder images.** CI builds every component with the private `registry.ci.openshift.org/ocp/builder` images,
-  even for OKD. There is no public equivalent. If you have access to the CI cluster, you can log in with
-  `oc registry login` and keep the original builder. Otherwise, use `registry.access.redhat.com/ubi9/go-toolset` at the
-  Go version from `go.mod`. It ships Go, `make` and `git`, but not the `-devel` libraries the private builder
-  includes. Add whatever your component links against with cgo. For the MCO that's `gpgme-devel` (needed by the
-  vendored `proglottis/gpgme` package) and `libassuan-devel`. If the build fails with
-  `Package <name> was not found in the pkg-config search path`, install `<name>-devel` in the builder stage. The
-  go-toolset image runs as a non-root user, so switch to `USER 0` before running `dnf`.
-- **Why not CentOS Stream as the builder?** `quay.io/centos/centos:stream9` works too, but `gpgme-devel` and
-  `libassuan-devel` are in the CRB repository, which you have to enable first. Its `golang` package also tracks the
-  newest Go release rather than the version the component targets.
+- **Builder images.** OKD only swaps the runtime base image. CI builds every component with the same private
+  `registry.ci.openshift.org/ocp/builder` images as OpenShift, and there is no public equivalent. If you have access to
+  the CI cluster, you can log in with `oc registry login` and keep the original builder. Otherwise, use the official
+  `golang` image at the Go version from `go.mod`. It ships Go, `make` and `git`, but not the C libraries the private
+  builder includes. Add whatever your component links against with cgo. For the MCO that's `libgpgme-dev`, which the
+  vendored `proglottis/gpgme` package needs. If the build fails with
+  `Package <name> was not found in the pkg-config search path`, install the matching `lib<name>-dev` package in the
+  builder stage.
 - **Repo helpers.** Some repositories ship a helper. For example, the MCO's `TAGS=scos make image` passes the build tag
   to `podman build`. It does **not** swap the base image, so you still need the `FROM` change.
 
