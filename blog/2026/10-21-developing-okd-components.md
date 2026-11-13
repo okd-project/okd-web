@@ -58,6 +58,12 @@ Now make your change.
 
 ## Step 1: Build the component for OKD (SCOS)
 
+:::note
+These steps work for most of the Go operators in the payload. A few components can't be rebuilt outside of OpenShift CI
+today, and some need extra changes. Check [Components that need extra work](#components-that-need-extra-work) before you
+start.
+:::
+
 The MCO's `Dockerfile.rhel7` has two `FROM` lines, and both point at images on the OpenShift CI registry:
 
 - **Final stage (this is what makes it OKD):** replace `registry.ci.openshift.org/ocp/5.0:base-rhel9` with the SCOS
@@ -291,6 +297,59 @@ for the branch you're building.
   builder stage.
 - **Repo helpers.** Some repositories ship a helper. For example, the MCO's `TAGS=scos make image` passes the build tag
   to `podman build`. It does **not** swap the base image, so you still need the `FROM` change.
+
+### Components that need extra work
+
+Most payload components follow the same pattern as the MCO, so Step 1 works for them unchanged. We checked every image
+in `5.0.0-okd-scos.1` against its `release-5.0` Dockerfile, building without any Red Hat credentials. The images below
+are the exceptions.
+
+These components can't be rebuilt outside of OpenShift CI today. Most of them install RPMs that are only available from
+an internal OpenShift repository, so `dnf` fails with `No match for argument: <package>`. The rest build with a Node.js
+image that isn't publicly available.
+
+| Image                          | Why it can't be rebuilt                                                       |
+| ------------------------------ | ----------------------------------------------------------------------------- |
+| `agent-installer-api-server`   | Installs the `openshift-clients` RPM                                          |
+| `agent-installer-csr-approver` | Installs the `openshift-clients` RPM                                          |
+| `agent-installer-node-agent`   | Installs the `dhclient` RPM, which CentOS Stream 10 no longer ships           |
+| `agent-installer-ui`           | Builds with the private Node.js builder                                       |
+| `baremetal-installer`          | Installs the `openshift-clients` RPM                                          |
+| `console`                      | Builds with the private Node.js builder                                       |
+| `haproxy-router`               | Installs the `haproxy32` RPM                                                  |
+| `haproxy-router-haproxy28`     | Installs the `haproxy28` RPM                                                  |
+| `haproxy-router-haproxy32`     | Installs the `haproxy32` RPM                                                  |
+| `insights-runtime-extractor`   | Installs the `cri-tools` RPM                                                  |
+| `metallb-frr`                  | Installs the `frr10` RPM                                                      |
+| `monitoring-plugin`            | Builds with a Node.js image from `registry.redhat.io`, which requires a login |
+| `networking-console-plugin`    | Builds with the private Node.js builder                                       |
+| `ovn-kubernetes`               | Installs the `openshift-clients` RPM                                          |
+
+These components build, but need more changes than the two `FROM` lines in Step 1. "The release's `<name>` image" means
+the pullspec from `oc adm release info --image-for=<name> ${FROM_RELEASE}`.
+
+| Image                          | What to change                                                                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `agent-installer-utils`        | Its builder stage runs `dnf`, which the `golang` image doesn't have. Use a CentOS Stream 10 builder with Go installed                          |
+| `azure-file-csi-driver`        | Replace `ocp/5.0:azure-storage-azcopy-base` with `origin/scos-5.0:azure-storage-azcopy-base`                                                   |
+| `cli`                          | Add `libkrb5-dev` to the builder stage                                                                                                         |
+| `cli-artifacts`                | Replace `ocp/5.0:cli` with the release's `cli` image, and add `libkrb5-dev` to the builder stage                                               |
+| `cluster-node-tuning-operator` | Replace the final `quay.io/centos/centos:stream9` with the SCOS base image                                                                     |
+| `deployer`                     | Replace `ocp/5.0:cli` with the release's `cli` image, and add `libkrb5-dev` to the builder stage                                               |
+| `installer`                    | Replace `ocp/5.0:installer-etcd-artifacts` and `ocp/5.0:installer-kube-apiserver-artifacts` with the `origin/scos-5.0` images of the same name |
+| `installer-artifacts`          | Replace `ocp/5.0:installer-etcd-artifacts` and `ocp/5.0:installer-kube-apiserver-artifacts` with the `origin/scos-5.0` images of the same name |
+| `ironic`                       | Replace the final `quay.io/centos/centos:stream9` with the SCOS base image                                                                     |
+| `ironic-agent`                 | Replace the final `quay.io/centos/centos:stream9` with the SCOS base image                                                                     |
+| `machine-os-images`            | Replace `ocp/5.0:cli` and `ocp/5.0:installer` with the release's `cli` image and `installer` images                                            |
+| `must-gather`                  | Replace `ocp/5.0:cli` with the release's `cli` image                                                                                           |
+| `network-tools`                | Replace `ocp/5.0:ovn-kubernetes` with `origin/scos-5.0:ovn-kubernetes`, and `ocp/5.0:tools` with the release's `tools` image                   |
+| `operator-marketplace`         | Its `Dockerfile.okd` ends with `FROM origin/4.23:base`, which isn't published. Replace it with the SCOS base image                             |
+| `ovn-kubernetes-microshift`    | Replace `ocp/5.0:ovn-kubernetes-base` with `origin/scos-5.0:ovn-kubernetes-base`                                                               |
+| `pod`                          | Its builder stage runs `dnf`, which the `golang` image doesn't have. Use a CentOS Stream 10 builder with Go installed                          |
+| `tests`                        | Replace `ocp/5.0:tools` with the release's `tools` image                                                                                       |
+| `tools`                        | Add `libkrb5-dev` to the builder stage                                                                                                         |
+
+The `stream-coreos` and `stream-coreos-extensions` images are the node operating system, and aren't built this way.
 
 ### Release notes
 
